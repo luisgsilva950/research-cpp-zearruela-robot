@@ -1,6 +1,6 @@
 # Ze Arruela - Robot with DC Motors and Ultrasonic Sensor
 
-![Ze Arruela](robot_image.png)
+![Ze Arruela]
 
 Welcome to the Ze Arruela repository! Ze Arruela is a robot equipped with DC motors and an ultrasonic sensor. This repository contains the code and documentation for controlling Ze Arruela's movements and interacting with the environment using the ultrasonic sensor.
 
@@ -26,7 +26,7 @@ To use the code in this repository, you will need the following hardware compone
 2. Connect the hardware components according to your specific setup.
 3. Open the Arduino IDE (Integrated Development Environment) on your computer.
 4. Connect the Arduino board to your computer using a USB cable.
-5. Open the main Arduino sketch file (`Ze_Arruela.ino`) from the downloaded repository in the Arduino IDE.
+5. Open the main Arduino sketch file (`ze_arruela.ino`) from the downloaded repository in the Arduino IDE.
 6. Verify and upload the sketch to the Arduino board.
 7. Monitor the serial output for debug messages and sensor readings.
 
@@ -45,7 +45,7 @@ Once you have uploaded the code to your Arduino board, you can interact with Ze 
 
 Detailed documentation and explanations of the code can be found in the following files:
 
-- `Ze_Arruela.ino`: The main Arduino sketch file containing the robot control logic.
+- `ze_arruela.ino`: The main Arduino sketch file containing the robot control logic.
 - `DCMotor.h` and `DCMotor.cpp`: Class definition and implementation for the DC motor control.
 - `HCSR04.h` and `HCSR04.cpp`: Class definition and implementation for the ultrasonic sensor.
 
