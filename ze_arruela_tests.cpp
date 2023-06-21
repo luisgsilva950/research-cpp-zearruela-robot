@@ -62,4 +62,12 @@ test(nextStateTest) {
   // Add assertions for motor behavior
 }
 
-unittest_main()
+void setup() {
+  Serial.begin(9600);
+  // Run the tests
+  Test::run();
+}
+
+void loop() {
+  // Nothing to do here
+}
