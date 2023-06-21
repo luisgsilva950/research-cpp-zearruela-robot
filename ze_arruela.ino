@@ -141,6 +141,10 @@ class Robot {
     if (state == SPINNING && opponentDistance() <= 50) forward();
     if (state == FORWARDING && opponentDistance() > 50) spin();
   }
+  
+  State getState() {
+    return state;
+  }
 };
 
 Robot robot;
