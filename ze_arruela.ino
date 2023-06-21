@@ -9,21 +9,28 @@ class DCMotor {
     pinMode(pin2, OUTPUT);
   }
 
-  void setSpeed(int in1) { spd = in1; }
+  void setSpeed(int in1) {
+    spd = in1;
+    Serial.print("Motor speed set to: ");
+    Serial.println(spd);
+  }
 
   void forward() {
     analogWrite(pin1, spd);
     digitalWrite(pin2, LOW);
+    Serial.println("Motor moving forward");
   }
 
   void backward() {
     digitalWrite(pin1, LOW);
     analogWrite(pin2, spd);
+    Serial.println("Motor moving backward");
   }
 
   void stop() {
     digitalWrite(pin1, LOW);
     digitalWrite(pin2, LOW);
+    Serial.println("Motor stopped");
   }
 };
 
@@ -49,6 +56,8 @@ class UltrassonicSensor {
     digitalWrite(triggerPin, LOW);
     long duration = pulseIn(echoPin, HIGH);
     long distance = duration * 0.0343 / 2;
+    Serial.print("Distance measured: ");
+    Serial.println(distance);
     return distance;
   }
 };
@@ -78,6 +87,7 @@ class Robot {
     state = SPINNING;
     motor1.forward();
     motor2.backward();
+    Serial.println("Robot spinning");
   }
 
   void spinWait() {
@@ -96,18 +106,21 @@ class Robot {
     state = FORWARDING;
     motor1.forward();
     motor2.forward();
+    Serial.println("Robot moving forward");
   }
 
   void backward() {
     state = BACKWARDING;
     motor1.backward();
     motor2.backward();
+    Serial.println("Robot moving backward");
   }
 
   void stop() {
     state = WAITING;
     motor1.stop();
     motor2.stop();
+    Serial.println("Robot stopped");
   }
 
   void setSpeed(int speedValue) {
@@ -116,7 +129,12 @@ class Robot {
     motor2.setSpeed(speed);
   }
 
-  long opponentDistance() { return ultrassonic.distance(); }
+  long opponentDistance() {
+    long distance = ultrassonic.distance();
+    Serial.print("Opponent distance: ");
+    Serial.println(distance);
+    return distance;
+  }
 
   void nextState() {
     if (state == WAITING) spinWait();
@@ -128,6 +146,7 @@ class Robot {
 Robot robot;
 
 void setup() {
+  Serial.begin(9600);
   DCMotor motor1(5, 6);
   DCMotor motor2(9, 10);
   UltrassonicSensor ultrassonic(2, 4);
