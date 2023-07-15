@@ -200,8 +200,7 @@ class Robot {
         spinReverse();
         delay(200);
       }
-    } else if(getState() == FORWARDING) {
-      if (frontBorderIdentified()) {
+    } else if(getState() == FORWARDING && frontBorderIdentified()) {
         stop();
         delay(200);
         backward();
@@ -209,9 +208,7 @@ class Robot {
         stop();
         delay(100);
         spin();
-      }
-    } else if(getState() == BACKWARDING) {
-      if (backBorderIdentified()) {
+    } else if(getState() == BACKWARDING && backBorderIdentified()) {
         stop();
         delay(200);
         forward();
@@ -219,7 +216,6 @@ class Robot {
         stop();
         delay(100);
         spin();
-      }
     } else {
       spin();
     }
